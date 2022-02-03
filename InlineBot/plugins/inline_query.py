@@ -1,11 +1,8 @@
-# Copyright (C) @CodeXBotz - All Rights Reserved
-# Licensed under GNU General Public License as published by the Free Software Foundation
-# Written by Shahsad Kolathur <shahsadkpklr@gmail.com>, June 2021
 
 import re
 import ast
 from InlineBot import (
-    CodeXBotz,
+    MJBOTZ,
     thumb,
     filters,
     InlineQuery,
@@ -23,8 +20,8 @@ from InlineBot.database import (
     get_filters
 )
 
-@CodeXBotz.on_inline_query(filters.inline)
-async def give_filter(client: CodeXBotz, query: InlineQuery):
+@MJBOTZ.on_inline_query(filters.inline)
+async def give_filter(client: MJBOTZ, query: InlineQuery):
     text = query.query.lower()
     documents = await get_filters(text)
     results = []
@@ -96,8 +93,8 @@ async def give_filter(client: CodeXBotz, query: InlineQuery):
     )
         
         
-@CodeXBotz.on_callback_query(filters.regex(r"^(alertmessage):(\d):(.*)"))
-async def alert_msg(client: CodeXBotz, callback: CallbackQuery):
+@MJBOTZ.on_callback_query(filters.regex(r"^(alertmessage):(\d):(.*)"))
+async def alert_msg(client: MJBOTZ, callback: CallbackQuery):
     regex = r"^(alertmessage):(\d):(.*)"
     matches = re.match(regex, callback.data)
     i = matches.group(2)
