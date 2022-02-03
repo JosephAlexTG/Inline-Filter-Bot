@@ -1,7 +1,7 @@
 
 {
     "name": "BOTMAN",
-    "description": "A POWERFUL INLINE FILTER BOT ✨BOTMAN✨",
+    "description": "An Inline Filter Bot using Mongodb",
     "keywords": [
         "telegram",
         "filter",
@@ -14,27 +14,22 @@
         "TG_BOT_TOKEN": {
             "description": "Your Bot token, Get it from @Botfather",
             "value": ""
-            "required": true 
         },
         "OWNER_ID": {
             "description": "An integer of consisting of your owner ID",
             "value": "1250450587"
-            "required": true
         },
         "APP_ID":{
             "description": "your app id, take it from my.telegram.org",
             "value": ""
-            "required": true
         },
         "API_HASH":{
             "description": "your api hash, take it from my.telegram.org",
             "value": ""
-            "required": true
         },
         "DATABASE_URL":{
             "description": "Database URL from https://cloud.mongodb.com/",
             "value": ""
-            "required": true
         },
         "IS_PUBLIC":{
             "description": "Optional: set this False, if the bot is only for admins",
@@ -48,12 +43,12 @@
         },
         "ADMINS": {
             "description": "A space separated list of user_ids of Admins, they can only create links",
-            "value": "5289647166",
-            "required": true 
+            "value": "",
+            "required": false
         },
         "THUMBNAIL_URL": {
             "description": "Optional: URL of the Image, it used as thumbnail for text ",
-            "value": "https://te.legra.ph/file/75d2f5426208d4b0fb31b.jpg",
+            "value": "",
             "required": false
         },
         "FILTER_COMMAND": {
@@ -70,7 +65,7 @@
     "buildpacks": [
         {
         "url": "heroku/python"
-        }
+              }
     ],
     "formation": {
         "worker": {
@@ -79,3 +74,4 @@
         }
     }
 }
+
