@@ -1,6 +1,6 @@
 #                    ✨BOTMAN✨
 
-A Telegram Bot For Inline Filter ✨BOTMAN✨
+A Telegram Bot For Inline Filter 
 
 ### Features
 
