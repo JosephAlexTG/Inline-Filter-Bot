@@ -1,13 +1,10 @@
-# Copyright (C) @CodeXBotz - All Rights Reserved
-# Licensed under GNU General Public License as published by the Free Software Foundation
-# Written by Shahsad Kolathur <shahsadkpklr@gmail.com>, June 2021
 
 import io
 import re
 import uuid
 
 from InlineBot import (
-    CodeXBotz,
+    MJBOTZ,
     Message,
     filters,
     CallbackQuery,
@@ -28,8 +25,8 @@ from InlineBot.database import (
 )
 from InlineBot import FILTER_COMMAND, DELETE_COMMAND
 
-@CodeXBotz.on_message(filters.command(FILTER_COMMAND) & filters.admins)
-async def new_filter(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.command(FILTER_COMMAND) & filters.admins)
+async def new_filter(client: MJBOTZ, message: Message):
 
     strid = str(uuid.uuid4())
     args = message.text.html.split(None, 1)
@@ -233,8 +230,8 @@ async def new_filter(client: CodeXBotz, message: Message):
     )
     await message.reply_text(f"<code>{text}</code> Added", quote = True, reply_markup = reply_markup)
 
-@CodeXBotz.on_message(filters.command(DELETE_COMMAND) & filters.admins)
-async def del_filter(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.command(DELETE_COMMAND) & filters.admins)
+async def del_filter(client: MJBOTZ, message: Message):
     try:
         cmd, text = message.text.split(" ", 1)
     except:
@@ -249,8 +246,8 @@ async def del_filter(client: CodeXBotz, message: Message):
     query = text.lower()
     await delete_filter(message, query)
     
-@CodeXBotz.on_message(filters.command('filters') & filters.admins)
-async def get_all(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.command('filters') & filters.admins)
+async def get_all(client: MJBOTZ, message: Message):
     texts = await get_all_filters()
     count = await count_filters()
     if count:
@@ -277,7 +274,7 @@ async def get_all(client: CodeXBotz, message: Message):
         quote=True
     )
     
-@CodeXBotz.on_message(filters.command('delall') & filters.owner)
+@MJBOTZ.on_message(filters.command('delall') & filters.owner)
 async def delallconfirm(client, message):
     reply_markup = InlineKeyboardMarkup(
         [
@@ -293,8 +290,8 @@ async def delallconfirm(client, message):
         quote=True
     )
     
-@CodeXBotz.on_callback_query(filters.regex("^delall$") & filters.owner)
-async def delall(client: CodeXBotz, query: CallbackQuery):
+@MJBOTZ.on_callback_query(filters.regex("^delall$") & filters.owner)
+async def delall(client: MJBOTZ, query: CallbackQuery):
     await del_all(query.message)
 
 @CodeXBotz.on_callback_query(filters.regex("^delallclose$") & filters.owner)
