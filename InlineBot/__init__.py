@@ -1,6 +1,3 @@
-# Copyright (C) @CodeXBotz - All Rights Reserved
-# Licensed under GNU General Public License as published by the Free Software Foundation
-# Written by Shahsad Kolathur <shahsadkpklr@gmail.com>, June 2021
 
 import os
 
@@ -10,7 +7,7 @@ DB_URI = os.environ.get("DATABASE_URL", "")
 BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
 TG_BOT_WORKERS = int(os.environ.get("BOT_WORKERS", '4'))
 DB_NAME = os.environ.get("DATABASE_NAME", "InlineFilterBot")
-thumb = os.environ.get('THUMBNAIL_URL', 'https://telegra.ph/file/516ca261de9ebe7f4ffe1.jpg')
+thumb = os.environ.get('THUMBNAIL_URL', 'https://te.legra.ph/file/75d2f5426208d4b0fb31b.jpg')
 OWNER_ID = int(os.environ.get('OWNER_ID'))
 CUSTOM_START_MESSAGE = os.environ.get('START_MESSAGE','')
 FILTER_COMMAND = os.environ.get('FILTER_COMMAND', 'add')
@@ -28,7 +25,7 @@ except ValueError:
 import logging
 from logging.handlers import RotatingFileHandler
 
-LOG_FILE_NAME = "codexbotz.txt"
+LOG_FILE_NAME = "mjbotz.txt"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -69,7 +66,7 @@ class CodeXBotz(Client):
         await super().start()
         bot_details = await self.get_me()
         self.LOGGER(__name__).info(f"@{bot_details.username}  started!")
-        self.LOGGER(__name__).info("Created by 𝘾𝙤𝙙𝙚 𝕏 𝘽𝙤𝙩𝙯\nhttps://t.me/CodeXBotz")
+        self.LOGGER(__name__).info("Created by MJBOTS\nhttps://t.me/mjbotz)
         self.bot_details = bot_details
 
     async def stop(self, *args):
