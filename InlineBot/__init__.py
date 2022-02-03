@@ -48,7 +48,7 @@ def LOGGER(name: str) -> logging.Logger:
 #---------- ---------- ---------- ----------
 from pyrogram import Client
 
-class CodeXBotz(Client):
+class MJBOTZ(Client):
     def __init__(self):
         super().__init__(
             "bot",
