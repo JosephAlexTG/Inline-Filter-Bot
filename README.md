@@ -11,10 +11,21 @@ A Telegram Bot For Inline Filter
 - Import and Export feature (allows to copy filters from one inline filter bot to another)
 - Custom Start Message, filter adding-deleting command
 
-#### Deploy on Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)</br>
+#### Deploy 
 
-#### Deploy in your VPS
+<details><summary><b>Deploy To Heroku</b></summary>
+<p>
+<br>
+<a href="https://heroku.com/deploy?template=https://github.com/JosephAlexTG/Inline-Filter-Bot">
+  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+</a>
+</p>
+</details>
+
+<details>
+  <summary><b>Deploy in your vps</b></summary>
+  </br>
+  
 ````bash
 git clone https://github.com/CodeXBotz/Inline-Filter-Bot
 cd Inline-Filter-Bot
