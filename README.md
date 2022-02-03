@@ -27,12 +27,12 @@ A Telegram Bot For Inline Filter
   </br>
   
 ````bash
-git clone https://github.com/CodeXBotz/Inline-Filter-Bot
+git clone https://github.com/JosephAlexTG/Inline-Filter-Bot
 cd Inline-Filter-Bot
 pip3 install -r requirements.txt
 python3 InlineBot
 ````
-#
+____
 
 ### Special Commands
 
