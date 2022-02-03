@@ -23,7 +23,7 @@ A Telegram Bot For Inline Filter
 </details>
 
 <details>
-  <summary><b>Deploy in your vps</b></summary>
+  <summary><b>Deploy To VPS</b></summary>
   </br>
   
 ````bash
