@@ -1,12 +1,9 @@
-# Copyright (C) @CodeXBotz - All Rights Reserved
-# Licensed under GNU General Public License as published by the Free Software Foundation
-# Written by Shahsad Kolathur <shahsadkpklr@gmail.com>, June 2021
 
 import io
 import os
 
 from InlineBot import (
-    CodeXBotz,
+    MJBOTZ,
     filters,
     Message
 )
@@ -18,8 +15,8 @@ from InlineBot.database import(
 )
 from InlineBot.helper_funcs import make_dict
 
-@CodeXBotz.on_message(filters.private & filters.command('export') & filters.admins)
-async def export_data(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.private & filters.command('export') & filters.admins)
+async def export_data(client: MJBOTZ, message: Message):
     sts_msg = await message.reply('<i>Please Wait..!</i>')
     
     if await count_filters() == 0:
@@ -33,8 +30,8 @@ async def export_data(client: CodeXBotz, message: Message):
             )
     await sts_msg.delete()
     
-@CodeXBotz.on_message(filters.private & filters.command('import') & filters.reply & filters.owner)
-async def import_datas(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.private & filters.command('import') & filters.reply & filters.owner)
+async def import_datas(client: MJBOTZ, message: Message):
     replied = message.reply_to_message
     if not replied.document:
         return
