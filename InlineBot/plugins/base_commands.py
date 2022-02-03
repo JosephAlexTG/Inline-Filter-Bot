@@ -1,5 +1,5 @@
  
-from InlineBot import CodeXBotz, ADMINS, filters, Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
+from InlineBot import MJBOTZ, ADMINS, filters, Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 from InlineBot.strings import START_MESSAGE, HELP_MESSAGE, ABOUT_MESSAGE, MARKDOWN_HELP
 from InlineBot.database import present_in_userbase, add_to_userbase
