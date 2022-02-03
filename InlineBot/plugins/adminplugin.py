@@ -1,7 +1,7 @@
 
 import asyncio
 from InlineBot import (
-    CodeXBotz,
+    MJBOTZ,
     filters,
     Message,
     InlineKeyboardMarkup,
@@ -19,13 +19,13 @@ from pyrogram.errors import (
     InputUserDeactivated
 )
 
-@CodeXBotz.on_message(filters.private & filters.command('stats') & filters.admins)
-async def getstatus(client: CodeXBotz, message: Message):
+@mjbotz.on_message(filters.private & filters.command('stats') & filters.admins)
+async def getstatus(client: MJBOTZ, message: Message):
     sts_msg = await message.reply('Getting Details..')
     stats = await get_status()
     await sts_msg.edit(stats)
     
-@CodeXBotz.on_message(filters.private & filters.command('broadcast') & filters.admins & filters.reply)
+@mjbotz.on_message(filters.private & filters.command('broadcast') & filters.admins & filters.reply)
 async def broadcast(client: CodeXBotz, message: Message):
     broadcast_msg = message.reply_to_message
     broadcast_msg = await broadcast_msg.copy(
@@ -46,8 +46,8 @@ async def broadcast(client: CodeXBotz, message: Message):
     )
     return
 
-@CodeXBotz.on_callback_query(filters.admins & filters.regex('^bdcast_cnfrm$'))
-async def broadcast_confrm(client: CodeXBotz, query):
+@mjbotz.on_callback_query(filters.admins & filters.regex('^bdcast_cnfrm$'))
+async def broadcast_confrm(client: MJBOTZ, query):
     if not query.message.reply_to_message:
         await query.answer(
             text = 'Message not found',
