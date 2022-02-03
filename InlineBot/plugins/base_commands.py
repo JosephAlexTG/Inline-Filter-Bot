@@ -1,7 +1,4 @@
-# Copyright (C) @CodeXBotz - All Rights Reserved
-# Licensed under GNU General Public License as published by the Free Software Foundation
-# Written by Shahsad Kolathur <shahsadkpklr@gmail.com>, June 2021
-
+ 
 from InlineBot import CodeXBotz, ADMINS, filters, Message, InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 from InlineBot.strings import START_MESSAGE, HELP_MESSAGE, ABOUT_MESSAGE, MARKDOWN_HELP
@@ -56,8 +53,8 @@ markdown_keyboard = [
     ]
 ]
 
-@CodeXBotz.on_message(filters.command('start') & filters.private)
-async def start_msg_admins(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.command('start') & filters.private)
+async def start_msg_admins(client: MJBOTZ, message: Message):
     if message.from_user.id in ADMINS:
         reply_markup = InlineKeyboardMarkup(start_keyboard)
     else:
@@ -79,7 +76,7 @@ async def start_msg_admins(client: CodeXBotz, message: Message):
     if not await present_in_userbase(message.from_user.id):
         await add_to_userbase(message.from_user.id)
     
-@CodeXBotz.on_message(filters.command('help') & filters.private & filters.admins)
+@MJBOTZ.on_message(filters.command('help') & filters.private & filters.admins)
 async def help_msg(client: CodeXBotz, message: Message):
     await message.reply(
         text = HELP_MESSAGE,
@@ -87,8 +84,8 @@ async def help_msg(client: CodeXBotz, message: Message):
         reply_markup = InlineKeyboardMarkup(help_keyboard)
     )
 
-@CodeXBotz.on_message(filters.command('about') & filters.private)
-async def about_msg(client: CodeXBotz, message: Message):
+@MJBOTZ.on_message(filters.command('about') & filters.private)
+async def about_msg(client: MJBOTZ, message: Message):
     user_id = message.from_user.id
     if user_id in ADMINS:
         reply_markup = InlineKeyboardMarkup(about_keyboard)
@@ -101,8 +98,8 @@ async def about_msg(client: CodeXBotz, message: Message):
         disable_web_page_preview = True
     )
 
-@CodeXBotz.on_callback_query(filters.regex(r'^close$'))
-async def close_cbb(client: CodeXBotz, query: CallbackQuery):
+@MJBOTZ.on_callback_query(filters.regex(r'^close$'))
+async def close_cbb(client: MJBOTZ, query: CallbackQuery):
     try:
         await query.message.reply_to_message.delete()
     except:
@@ -112,15 +109,15 @@ async def close_cbb(client: CodeXBotz, query: CallbackQuery):
     except:
         pass
 
-@CodeXBotz.on_callback_query(filters.regex(r'^help$') & filters.admins)
-async def help_cbq(client: CodeXBotz, query: CallbackQuery):
+@MJBOTZ.on_callback_query(filters.regex(r'^help$') & filters.admins)
+async def help_cbq(client: MJBOTZ, query: CallbackQuery):
     await query.edit_message_text(
         text = HELP_MESSAGE,
         reply_markup = InlineKeyboardMarkup(help_keyboard)
     )
     
-@CodeXBotz.on_callback_query(filters.regex('^about$'))
-async def about_cbq(client: CodeXBotz, query: CallbackQuery):
+@MJBOTZ.on_callback_query(filters.regex('^about$'))
+async def about_cbq(client: MJBOTZ, query: CallbackQuery):
     user_id = query.from_user.id
     if user_id in ADMINS:
         reply_markup = InlineKeyboardMarkup(about_keyboard)
@@ -132,8 +129,8 @@ async def about_cbq(client: CodeXBotz, query: CallbackQuery):
         disable_web_page_preview = True
     )
     
-@CodeXBotz.on_callback_query(filters.regex('^markdownhelper$') & filters.admins)
-async def md_helper(client: CodeXBotz, query: CallbackQuery):
+@MJBOTZ.on_callback_query(filters.regex('^markdownhelper$') & filters.admins)
+async def md_helper(client: MJBOTZ, query: CallbackQuery):
     await query.edit_message_text(
         text = MARKDOWN_HELP,
         reply_markup = InlineKeyboardMarkup(markdown_keyboard),
